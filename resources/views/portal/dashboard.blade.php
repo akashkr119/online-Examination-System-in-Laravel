@@ -1,5 +1,5 @@
 @extends('layouts.portal')
-@section('title','Portal Dashboard')
+@section('title','portal Dashboard')
 @section('content')
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -13,7 +13,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
+              <li class="breadcrumb-item active">Dashboard </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -26,44 +26,41 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          
-          @foreach($portal_exams as $key => $exam)
-          <?php 
-          $val=$key+1;
-          if(strtotime(date('Y-m-d'))>strtotime($exam['exam_date']))
-          {
-              $cls="bg-danger";
-          }        
-          else 
-          {
-              if($val%2==0)
-                $cls="bg-info";
-              else 
-                $cls="bg-success";
-          }
-          ?>
-           <div class="col-lg-6 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
-            <div class="small-box <?php echo $cls ?>">
+            <div class="small-box bg-info">
               <div class="inner">
-                <h3><?php echo $exam['title'] ?></h3>
+                <h3>Upcoming Exam</h3>
 
-                <p><?php echo $exam['cat_name']; ?></p>
+                <p>Example</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              @if(strtotime(date('Y-m-d')) < strtotime($exam['exam_date']))
-              <a href="{{ url('portal/exam_from/'.$exam['id']) }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              @endif
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>Completed Exam<sup style="font-size: 20px"></sup></h3>
+
+                <p>Example</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          @endforeach;
-          
+          </div>
+          <!-- ./col -->
+   
+          </div>
+          <!-- ./col -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <!-- /.row (main row) -->
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
